@@ -1,0 +1,302 @@
+def start() :
+    print('\nYou suddenly find yourself in a dark room.')
+    print('There is a door to your left and another to your right.')
+    print('Where do you go? (left, right or stay here)')
+
+def play_again() :
+    print('Do you want to play again? (y or n)')
+    answer = input('>').lower()
+
+    if answer == 'y' : 
+        game()
+    if answer == 'n' :
+        print('Thanks for playing!')
+        quit()
+
+
+def game_over(reason) :
+     print('\n' + reason)
+     print('GAME OVER!')
+     play_again()
+
+def bear_cave() :
+        print('\nYou sit in a corner thinking about your life choices and what has brought you in this rather terrifying place.')
+        print('After some time you suddenly hear a contraption activating behind the wall.')
+        print('Wihtin seconds of those sounds the floor beneath you opens up.')
+        print('You fall down to a cave.')
+        print('Immediatly you look up only to find the trapdoor closing.')
+        print('There is a bear sleeping in front of you.')
+        print('What do you do?')
+        print('1) You are scared again and you run to (guess what) a corner to hide.')
+        print('2) You are no scaredy cat so you grab a pointy stick and slay the beast.')
+
+def bear_cub_encounter() :
+            print('\nYou proceed to stab the bear with a stick.')
+            print('Surprisingly the bear actually got badly injured from the stick and as it dies it reveils her cub.')
+            print('You suddenly feel bad about what you just did.')
+            print('What do you do?')
+            print('1) You leave the cub to die')
+            print('2) You take the cub with you as a companion')
+
+def cave_exit() :
+    print('\nYou look around for an exit.')
+    print('You find a hidden lever.')
+    print('You pull it and find an opening to a new room.')
+
+def monster_room() :
+    print('\nYou proceed to enter the room.')
+    print('It is very dark, darker than the first room.')
+    print('There is a constant wooshing noise.')
+    print('You stay near the walls to navigate the room.')
+    print('You can barely see three doors.')
+    print('What do you do?')
+    print('1) Go trhough the left door.')
+    print('2) Go through the door to the right.')
+    print('3) Go through the door in the middle.')
+
+
+def fake_treasure_room() :
+    print('\nYou proceed to open the door to the right.')
+    print('As you enter the room you get blinded by the intense glow of metal.')
+    print('But you also notice the human bones on the floor.')
+    print('What do you do?')
+    print('1) You happily dive in the gold thinking that you just scored a jackpot.')
+    print('2) You get scared by the bones and hide in a corner of the room.')
+    print('3) Something is not right, you choose to go back in the previous room.')
+
+
+def treasure_room(answer, name) :
+    print('\nYou enter a room full of diamonds, jewels and gold coins.')
+    if answer == '2' :
+        print('You scream to', name, '"we are rich!"')
+    print('What do you do?')
+    print('1) You start filling you pockets with treasure.')
+    print('2) You try finding an exit.')
+
+def you_win() :
+    print('\nYou WIN!')
+    print('You have officially completed this adventure')
+    play_again()
+
+def game() :
+    start()
+
+    answer_start = input('>').lower()
+
+    if answer_start == 'right' :
+        fake_treasure_room()
+        answer_fake_treasure_room = input('>')
+        if answer_fake_treasure_room == '1' :
+            print('\nYou decide to dive in the gold but as soon as you do it something grabs you from underneath the pile.')
+            game_over('A monster of the dark proceeds to eat you.\nAt least now you know that monsters of the dark do not appreciate when you swan dive in their gold.')
+        elif answer_fake_treasure_room == '2' :
+            bear_cave()
+            answer_bear_cave = input('>')
+            if answer_bear_cave == '1':
+                print('\nAs you run to the corner of the cave you trip on a stick and fall down')
+                print('The bear suddenly wakes up reveiling her cub.')
+                game_over('Thinking the little bear was in danger she attacks you and kils you.\nAt least now you know that it was nothing personal.')
+            elif answer_bear_cave == '2' :
+                bear_cub_encounter()
+                answer_bear_cub_encounter = input('>')
+                if answer_bear_cub_encounter == '1' :
+                    print('\nThe walls of the room turn red, fires start everywhere.')
+                    game_over('You are officially in Hell.')
+                elif answer_bear_cub_encounter == '2' :
+                    print('\nYou say sorry to the cub and decide he deserves a name.')
+                    print('How do you call it?')
+                    cub_name = input('>')
+                    print('You then pet the bear and tell him that his name is', cub_name)
+                    cave_exit()
+                    monster_room()
+                    answer_monster_room = input('>')
+                    if answer_monster_room == '1' :
+                        print('\nSomething instantly exits the room and grabs you.')
+                        game_over('You proceed to get eaten by a monster of the dark.')
+                    elif answer_monster_room == '3' :
+                        print('\nYou are back to the first room.')
+                        print('There are two doors, one to the left (where you came through) and one to the right.')
+                        print('What do you do?')
+                        print('1) Go through the left door.')
+                        print('2) Go through the door to the right.')
+                        print('3) Stay here')
+                        answer_start_2 = input('>')
+                        if answer_start_2 == '2' :
+                            fake_treasure_room()
+                            answer_fake_treasure_room = input('>')
+                            if answer_fake_treasure_room == '1' :
+                                print('\nYou decide to dive in the gold but as soon as you do it something grabs you from underneath the pile.')
+                                game_over('A monster of the dark proceeds to eat you.\nAt least now you know that monsters of the dark do not appreciate when you swan dive in their gold.')
+                            elif answer_fake_treasure_room == '2' :
+                                bear_cave()
+                                answer_bear_cave = input('>')
+                                if answer_bear_cave == '1':
+                                    print('\nAs you run to the corner of the cave you trip on a stick and fall down')
+                                    print('The bear suddenly wakes up reveiling her cub.')
+                                    game_over('Thinking the little bear was in danger she attacks you and kils you.\nAt least now you know that it was nothing personal.')
+                                elif answer_bear_cave == '2' :
+                                    bear_cub_encounter()
+                                    answer_bear_cub_encounter = input('>')
+                                    if answer_bear_cub_encounter == '1' :
+                                        print('\nThe walls of the room turn red, fires start everywhere.')
+                                        game_over('You are officially in Hell.')
+                                    elif answer_bear_cub_encounter == '2' :
+                                        print('\nYou say sorry to the cub and decide he deserves a name.')
+                                        print('How do you call it?')
+                                        cub_name = input('>')
+                                        print('You then pet the bear and tell him that his name is', cub_name)
+                                        cave_exit()
+                                        print('You find yourself in the dark, scary monster room.')
+                                        print('There are three doors. One to the left, one in the middle (you already went through here) and one to the right.')
+                                        print('Where do you go?')
+                                        print('1) Go left.')
+                                        print('2) Go right.')
+                                        answer_monster_room = input('>')
+                                        if answer_monster_room == '1' :
+                                            print('\nSomething instantly exits the room and grabs you.')
+                                            game_over('You proceed to get eaten by a monster of the dark.')
+                                        elif answer_monster_room == '2' :
+                                            treasure_room(answer_bear_cub_encounter, cub_name)
+                                            answer_treasure_room = input('>')
+                                            if answer_treasure_room == '1' :
+                                                print('\nYou greedy man!')
+                                                game_over('The treasures in your pocket weigh so much that the floor beneath you breaks, you proceed to fall in the void.')
+                                            elif answer_treasure_room == '2' :
+                                                print('\nA voice from above says "You are a honest man young adventurer, you are free to leave this dungeon."')
+                                                if answer_bear_cub_encounter == '2' :
+                                                    print('The voice then says "You may also keep', cub_name,'"')
+                                                    you_win()
+                                                else :
+                                                    you_win()   
+                                            else :
+                                                print('\nYou stay still, not knowing what to do.')
+                                                print('Suddenly a monster of the dark grabs you from behind (you left the door open!!)')
+                                                game_over('You proceed to get eaten by a monster of the dark')
+                                        else :
+                                            print('\nYou stay still, not knowing what to do.')
+                                            game_over('A monster of the dark grabs you and eats you.')
+                                    else : 
+                                        print('\nYou stay still, not knowing what to do.')
+                                        game_over('The cub (cute but lethal) proceeds to kill you because you killed his mother.')
+                                else :
+                                    print('\nYou stay still, not knowing what to do.')
+                                    game_over('A monster of the dark grabs you right before the trapdoor closes. He proceeds to eat you.')
+                            else :
+                                print('\nYou stay still, not knowing what to do.')
+                                game_over('You stay still for so long that you die of old age.')
+                        elif answer_start_2 == '1':
+                            print('\nYou go through the door and instantly get killed by a monster of the dark.')
+                            game_over('At least now you know not to go through the same door twice.')
+                        elif answer_start_2 == '3' :
+                            print('\nYou decide to stay here. You do not know what to do and a moment later you hear a weird sound.')
+                            print('You notice a light switch and you flip it hoping you could see what made that sound.')
+                            game_over('As soon as you flip it a monster of the dark grabs you and eats you.')
+                        else :
+                            print('\nYou do not know what to do and a moment later you hear a weird sound.')
+                            print('You notice a light switch and you flip it hoping you could see what made that sound.')
+                            game_over('As soon as you flip it a monster of the dark grabs you and eats you.')
+                    elif answer_monster_room == '2' :
+                        treasure_room(answer_bear_cub_encounter, cub_name)
+                        answer_treasure_room = input('>')
+                        if answer_treasure_room == '1' :
+                            print('\nYou greedy man!')
+                            game_over('The treasures in your pocket weigh so much that the floor beneath you breaks, you proceed to fall in the void.')
+                        elif answer_treasure_room == '2' :
+                            print('\nA voice from above says "You are a honest man young adventurer, you are free to leave this dungeon."')
+                            if answer_bear_cub_encounter == '2' :
+                                print('The voice then says "You may also keep', cub_name,)
+                                play_again()
+                            else :
+                                play_again()    
+                        else :
+                            print('\nYou stay still, not knowing what to do.')
+                            print('Suddenly a monster of the dark grabs you from behind (you left the door open!!)')
+                            game_over('You proceed to get eaten by a monster of the dark')
+                    else :
+                        print('\nYou stay still not knowing what to do.')
+                        game_over('A monster of the dark eats you. At least now you know that the room you were in was their evil lair.')
+                else :
+                    print('\nThe little bear escapes. Thinking nothing of it you look for an exit.')
+                    game_over('A couple of moments later papa bear arrives. He kills you.')
+            else : 
+                print('\nYou do not know what to do so you stay still')
+                game_over('The bear wakes up, sees you and kills you reveiling her cub.')
+        elif answer_fake_treasure_room == '3' :
+            print('You try opening the door from where you came from, it is locked.')
+            game_over('You stay for so long in that room that you die of old age.')
+        else :
+            print('\nYou stay still, not knowing what to do.')
+            print('Suddenly a monster of the dark grabs you from behind (you left the door open!!)')
+            game_over('You proceed to get eaten by a monster of the dark')
+    elif answer_start == 'left' :
+        print('\nYou open the door.')
+        monster_room()
+        answer_monster_room = input('>')
+        if answer_monster_room == '1' :
+            print('\nSomething instantly exits the room and grabs you.')
+            game_over('You proceed to get eated by a monster of the dark.')
+        elif answer_monster_room == '2' :
+            treasure_room('answer_bear_cub_encounter', 'cub_name')
+            answer_treasure_room = input('>')
+            if answer_treasure_room == '1' :
+                print('\nYou greedy man!')
+                game_over('The treasures in your pocket weigh so much that the floor beneath you breaks, you proceed to fall in the void.')
+            elif answer_treasure_room == '2' :
+                print('\nA voice from above says "You are a honest man young adventurer, you are free to leave this dungeon."')
+                you_win
+            else :
+                print('\nYou stay still, not knowing what to do.')
+                print('Suddenly a monster of the dark grabs you from behind (you left the door open!!)')
+                game_over('You proceed to get eaten by a monster of the dark')
+        elif answer_monster_room == '3' :
+            print('\nYou go trhough the middle door and find yourself in the starting room.')
+            print('but this time it is different. There is a treasure chest.')
+            print('What do you do?')
+            print('1) Open it')
+            print('2) Leave it.')
+            answer_chest = input('>')
+            if answer_chest == '1' :
+                print('\nA monster of the dark comes out of the chest.')
+                print('It is a cub.')
+                print('What do you do?')
+                print('1) Pet it.')
+                print('2) Kill it.')
+                answer_cub_monster = input('>')
+                if answer_cub_monster == '1' :
+                    print('\nThe cub amputates your arm.')
+                    game_over('He then proceeds to eat you.')
+                elif answer_cub_monster == '2' :
+                    print('\nYou try punching it.')
+                    print('The monsters of the dark are immortal.')
+                    game_over('The cub proceeds to eat you.')
+                else :
+                    print('\nYou do not know what to do.')
+                    game_over('The cub uses your confusion to his advantage, he eats you.')
+            elif answer_chest == '2' :
+                print('\nAs you turn around to look for an exit the chest opens by itself.')
+                print('\nA monster of the dark comes out of the chest.')
+                print('It is a cub.')
+                print('What do you do?')
+                print('1) Pet it.')
+                print('2) Kill it.')
+                answer_cub_monster = input('>')
+                if answer_cub_monster == '1' :
+                    print('\nThe cub amputates your arm.')
+                    game_over('He then proceeds to eat you.')
+                elif answer_cub_monster == '2' :
+                    print('\nYou try punching it.')
+                    print('The monsters of the dark are immortal.')
+                    game_over('The cub proceeds to eat you.')
+            else :
+                print('You stay still not knowing what to do.')
+                game_over('You stay still for so long that you died of old age.')
+        else :
+            print('\nYou stay still not knowing what to do.')
+            game_over('A monster of the dark eats you. At least now you know that the room you were in was their evil lair.')        
+    else :
+        print('You do not know what to do and a moment later you hear a weird sound.')
+        print('You notice a light switch and you flip it hoping you could see what made that sound.')
+        game_over('As soon as you flip it a monster of the dark grabs you and eats you.')
+
+
+game()
